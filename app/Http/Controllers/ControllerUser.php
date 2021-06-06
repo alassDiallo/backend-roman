@@ -141,14 +141,13 @@ class ControllerUser extends Controller
     }
 
     public function changerimage(Request $request){
-        $files= explode('/',$request->image);
-        $file= $files[count($files)-1];
-        //$filename = time() . "." .$file->getClientOriginalExtension();
-        Image::make($file)->save(public_path("/").$file);
-    return response()->json($file);
         if($request->hasFile('image')){
-           
+            // $file=$request->image;
+            // $filename = time() . "." .$file->getClientOriginalExtension();
+            // Image::make($file)->save(public_path("/").$filename);
+    return response()->json('reussi');
         }
+        return response()->json('echec');
     }
 
     /**
