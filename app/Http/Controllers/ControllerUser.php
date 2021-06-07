@@ -141,11 +141,13 @@ class ControllerUser extends Controller
     }
 
     public function changerimage(Request $request){
+        // return response()->json($request);
         if($request->hasFile('image')){
-            // $file=$request->image;
-            // $filename = time() . "." .$file->getClientOriginalExtension();
-            // Image::make($file)->save(public_path("/").$filename);
-    return response()->json('reussi');
+            $file=$request->image;
+            $filename = time() . "." .$file->getClientOriginalExtension();
+            Image::make($file)->save(public_path("/storage/").$filename);
+            User::where('id',Auth::id())->update(['profil'=>$filename]);
+    return response()->json($filename);
         }
         return response()->json('echec');
     }
