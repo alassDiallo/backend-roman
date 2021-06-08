@@ -145,7 +145,7 @@ class ControllerUser extends Controller
         if($request->hasFile('image')){
             $file=$request->image;
             $filename = time() . "." .$file->getClientOriginalExtension();
-            Image::make($file)->save(public_path("/storage/").$filename);
+            Image::make($file)->save(public_path("/").$filename);
             User::where('id',Auth::id())->update(['profil'=>$filename]);
     return response()->json($filename);
         }
