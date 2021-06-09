@@ -48,8 +48,12 @@ Route::group([
   'prefix' => 'auth'
   
 ], function ($router) {
-  Route::post('/login', [App\Http\Controllers\ControllerUser::class, 'login']);
   
+  Route::get('/rechercheLocalisation/{ville}', function(Request $request){
+    return response()->json($request);
+  }); 
+    Route::post('/login', [App\Http\Controllers\ControllerUser::class, 'login']);
+    Route::post('/modifierMonProfil', [App\Http\Controllers\ControllerUser::class, 'modifierMonProfil']);
     Route::post('/changerimage', [App\Http\Controllers\ControllerUser::class, 'changerimage']);
     Route::post('/recherche', [App\Http\Controllers\ControllerUser::class, 'recherche']);
     Route::post('/logout', [App\Http\Controllers\ControllerUser::class, 'logout']);

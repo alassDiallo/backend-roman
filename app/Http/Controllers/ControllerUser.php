@@ -42,6 +42,33 @@ class ControllerUser extends Controller
         return $this->createNewToken($token);
     }
 
+    public function modifierMonProfil(Request $request){
+       
+        $rules = [
+            'name'=>'required|string'
+        ];
+        $validator=Validator::make($request->all(),$rules);
+        if($validator->fails()){
+            return response()->json($validator->errors());
+        }
+     User::where('id',Auth::id())->update([
+         'name'=>$request->name,
+         'texte'=>$request->texte==""?null:$request->texte,
+         'phraseaudio'=>$request->phraseaudio==""?null:$request->phraseaudio,
+         'dateDeNaissance'=>$request->dateDeNaissance==""?null:$request->dateDeNaissance,
+         'enfant'=>$request->enfant==""?null:$request->enfant,
+         'nombreEnfant'=>$request->nbrEnfant==""?null:$request->nbrenfant,
+         'ville'=>$request->ville==""?null:$request->ville,
+         'vie'=>$request->ville==""?null:$request->vie,
+         'loisir'=>$request->loisir==""?null:$request->loisir,
+         'sexe'=>$request->sexe==""?null:$request->sexe,
+         'serie'=>$request->serie==""?null:$request->serie,
+         'artiste'=>$request->artiste==""?null:$request->artiste,
+         'sortir'=>$request->sortir==""?null:$request->sortir,
+     ]);
+        return response()->json(['success'=>'reussi']);
+    }
+
     /**
      * Register a User.
      *
