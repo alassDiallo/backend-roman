@@ -99,7 +99,11 @@ class ControllerUser extends Controller
 
     public function recherche(Request $request){
 
-        return response()->json($request);
+        $users =User::where('ville',$request->ville)->
+                      where('sexe',$request->sexe)->get();
+
+
+        return response()->json($users);
     }
 
     public function validerCompte(Request $request) {
