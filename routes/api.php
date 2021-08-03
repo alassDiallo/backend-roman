@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\Compte;
+
 // use Validator;
 
 /*
@@ -49,9 +50,7 @@ Route::group([
   
 ], function ($router) {
   
-  Route::get('/rechercheLocalisation/{ville}', function(Request $request){
-    return response()->json($request);
-  }); 
+  Route::get('/rechercheLocalisation/{ville}',[App\Http\Controllers\recherche::class, 'rechercheVille'] );
     Route::post('/login', [App\Http\Controllers\ControllerUser::class, 'login']);
     Route::post('/modifierMonProfil', [App\Http\Controllers\ControllerUser::class, 'modifierMonProfil']);
     Route::post('/changerimage', [App\Http\Controllers\ControllerUser::class, 'changerimage']);

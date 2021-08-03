@@ -99,8 +99,8 @@ class ControllerUser extends Controller
 
     public function recherche(Request $request){
 
-        $users =User::where('ville',$request->ville)->
-                      where('sexe',$request->sexe)->get();
+        $users =User::where('ville',$request->ville)->get();
+                    //   where('sexe',$request->sexe)->get();
 
 
         return response()->json($users);

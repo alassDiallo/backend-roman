@@ -1,0 +1,7 @@
+postgres://awkbtrovbxljbp:0fb76b313ae5ab5e89c43b8c7e5813bc6173f894f1a13f1facb1c26e1a0fb537@ec2-52-71-231-37.compute-1.amazonaws.com:5432/deerebupffiief
+
+username=awkbtrovbxljbp
+password=0fb76b313ae5ab5e89c43b8c7e5813bc6173f894f1a13f1facb1c26e1a0fb537
+host=ec2-52-71-231-37.compute-1.amazonaws.com
+port=5432
+dbname=deerebupffiief

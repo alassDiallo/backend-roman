@@ -25,8 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('sexe')->nullable();
             $table->date('dateDeNaissance')->nullable();
             $table->string('ville')->nullable();
-            $table->string('enfant')->nullable();
-            $table->integer('nombreEnfant')->nullable();
+            $table->integer('nombreEnfant')->default(0);
             $table->string('artiste')->nullable();
             $table->string('serie')->nullable();
             $table->string('loisir')->nullable();
